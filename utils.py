@@ -3,6 +3,7 @@ def solve_system(variables, results):
     n = len(variables)
     M = variables
 
+    # TODO: Loop with index
     i = 0
     for x in M:
         x.append(results[i])
