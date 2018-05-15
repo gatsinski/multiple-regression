@@ -47,6 +47,26 @@ class GetVariablesTestCase(unittest.TestCase):
 
         self.assertEqual(result, expected_result)
 
+    def test_mismatching_list_lenght(self):
+        z = [31.4, 14.6, 6.4, 28.3, 42.1, 15.3, 14.3, 18.9]
+        w = [345, 168, 94, 187, 621, 255, 316]
+        x = [65, 18, 0, 185, 87]
+        y = [23, 18, 0, 98, 10, 14, 15]
+
+        result = get_variables(z, w, x, y)
+
+        expected_result = [
+            [7, 171.30000000000004, 1986, 355],
+            [171.30000000000004,
+             4609.17,
+             53743.90000000001,
+             11202.0],
+            [1986, 53743.90000000001, 741576, 114071],
+            [355, 11202.0, 114071, 46343]
+        ]
+
+        self.assertEqual(result, expected_result)
+
 
 class GetAnswersTestCase(unittest.TestCase):
 
@@ -59,6 +79,18 @@ class GetAnswersTestCase(unittest.TestCase):
         result = get_answers(z, w, x, y)
 
         expected_result = [149, 4179.4, 35495, 20819]
+
+        self.assertEqual(result, expected_result)
+
+    def test_mismatching_lists_lenght(self):
+        z = [31.4, 14.6, 6.4, 28.3, 42.1, 15.3, 18.5, 14]
+        w = [345, 94, 187, 621]
+        x = [65, 18, 0, 185, 87, 0]
+        y = [23, 18, 0, 98, 10, 35, 93, 46]
+
+        result = get_answers(z, w, x, y)
+
+        expected_result = [323, 7079.4, 70485, 20819]
 
         self.assertEqual(result, expected_result)
 
